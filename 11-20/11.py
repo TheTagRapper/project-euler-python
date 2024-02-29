@@ -18,4 +18,27 @@ baseArray = [[ 8, 2, 22, 97, 38, 15, 00, 40, 00, 75, 4, 5, 7, 78, 52, 12, 50, 77
              [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
              [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
              [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]]
-print(len(baseArray))
+maxTerm = 0
+#Finding the greatest horizontal length
+for i in range(0,20):
+    for j in range(0,17):
+        multTerm = baseArray[i][j] * baseArray[i][j+1] * baseArray[i][j+2] * baseArray[i][j+3]
+        if multTerm > maxTerm:
+            maxTerm = multTerm
+
+#Finding the greatest vertical product
+for i in range(0,17):
+    for j in range(0,20):
+        multTerm = baseArray[i][j] * baseArray[i+1][j] * baseArray[i+2][j] * baseArray[i+3][j]
+        if multTerm > maxTerm:
+            maxTerm = multTerm
+
+#Finding the greatest diagonal product diagonally going from left to right
+for i in range(0, 17):
+    for j in range(0,17):
+        multTerm = baseArray[i+j][i] * baseArray[i+j+1][i+1] * baseArray[i+j+2][i+2] * baseArray[i+j+2][i+2] 
+
+#Finding the greatest diagonal product diagonal going from right to left
+
+
+print(maxTerm)
